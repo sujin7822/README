@@ -1,4 +1,6 @@
 
+![img1](img\sia_logo.png)
+
 # AIFFEL X SIA PROJECT
 * 모두의연구소 산하 인공지능 교육기관 AIFFEL과 인공지능 기반 위성/항공 영상 분석 전문기업 SI Analytics가 협력하여 진행된 기업 연계 해커톤 프로젝트로서, [위성영상 객체분할을 위한 의미론적 분할 기술] 주제에 대해 SIA로 부터 제공 받은 위성 데이터를 기반으로 프로젝트를 진행하였습니다.
 
@@ -23,7 +25,7 @@
 
 ### 구성원 
 | 이름 | 구성 | 역할 |
-| :---: | :---: | :---: | 
+| :-----: | :-----: | :----------------------------: | 
 | 황무성 | 팀장 | 프로젝트 총괄, pre-processing, Road Segmentation 모델링, Instance Segmentation 모델링, 결과 분석 | 
 | 배재현 | 부팀장 | 일정 관리, pre-processing, Building Segmentation 모델링, 결과 분석, GIS Mapping, GCP 운용 | 
 | 권다현 | 팀원 | EDA, post-processing, Loss Function 비교 분석 | 
@@ -33,10 +35,37 @@
 ### 기술 스택
 - Pytorch, MMSegmentation, OpenCV, PIL, QGIS, Pandas, numpy, Matplotlib, Seaborn 외
 
-## 2. 데이터 정의
+## 2. 데이터 정의 및 EDA
 
-### 데이터 분석(EDA) 및 전처리
+### 데이터 정의
 
-  
-## 3. Modeling
+### 데이터 분석(EDA)
 
+
+## 3. Level1 건물과 도로를 각각 검출하고 결과를 합쳐서 분석
+
+### Pre-processing
+
+### Modeling
+
+### Loss Function research
+
+### Upsampling
+
+### Contour...
+
+### Post-processing
+
+### Test data 분석
+
+### 데이터셋 추가
+
+## 4. Level2 건물의 객체검출을 위한 학습을 수행
+
+### Pre-processing
+
+### Modeling
+
+## 5. Level3 건물의 크기와 개수를 계산할 수 있도록 LV2결과를 이용해 Polygon형태로 나타내고 지도에 매핑
+
+### QGIS
