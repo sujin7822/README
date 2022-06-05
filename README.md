@@ -30,7 +30,7 @@
 | 배재현 | 부팀장 | 일정 관리, pre-processing, Building Segmentation 모델링, 결과 분석, GIS Mapping, GCP 운용 | 
 | 권다현 | 팀원 | EDA, post-processing, Loss Function 비교 분석 | 
 | 양창민 | 팀원 | SpaceNet 자료조사, post-processing, Upsampling |
-| 남궁재원 | 팀원&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | EDA, Road Contour 모델링 |
+| 남궁재원 | 팀원&nbsp; | EDA, Road Contour 모델링 |
 
 ### 기술 스택
 - Pytorch, MMSegmentation, OpenCV, PIL, QGIS, Pandas, numpy, Matplotlib, Seaborn 외
