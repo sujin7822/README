@@ -1,5 +1,5 @@
 
-![img1](img\sia_logo.png)
+![img1](img/sia_logo.png)
 
 # AIFFEL X SIA PROJECT
 * 모두의연구소 산하 인공지능 교육기관 AIFFEL과 인공지능 기반 위성/항공 영상 분석 전문기업 SI Analytics가 협력하여 진행된 기업 연계 해커톤 프로젝트로서, [위성영상 객체분할을 위한 의미론적 분할 기술] 주제에 대해 SIA로 부터 제공 받은 위성 데이터를 기반으로 프로젝트를 진행하였습니다.
@@ -30,14 +30,33 @@
 | 배재현 | 부팀장 | 일정 관리, pre-processing, Building Segmentation 모델링, 결과 분석, GIS Mapping, GCP 운용 | 
 | 권다현 | 팀원 | EDA, post-processing, Loss Function 비교 분석 | 
 | 양창민 | 팀원 | SpaceNet 자료조사, post-processing, Upsampling |
-| 남궁재원 | 팀원 &nbsp;&nbsp;&nbsp;| EDA, Road Contour 모델링 |
+| 남궁재원 | 팀원 | EDA, Road Contour 모델링 |
 
 ### 기술 스택
 - Pytorch, MMSegmentation, OpenCV, PIL, QGIS, Pandas, numpy, Matplotlib, Seaborn 외
 
 ## 2. 데이터 정의 및 EDA
 
-### 데이터 정의
+### 데이터셋 정의
+- 아리랑 3A호 (KOMPSAT-3A)에서 취득한 위성영상 패치
+    - Scene형태의 영상을 AI를 위해서 1024 크기의 패치로 자른 형태
+    - RGB3채널로 생성된 영상 활용
+    - GSD(GroundSampleDistance):0.55m
+    - 같은 장소영상에 대해 KML,PNG,TIF타입 등으로 총 3개 제공
+    - 패치 개수: 건물, 도로 ­ 동일 이름은 확장자가 달라도 1개로 취급
+- Label
+    - 건물은 JSON,PNG타입으로 총 2개씩 제공
+    - 도로는 JSON타입 1개만 제공
+- 데이터셋 및 타입에 대한 설명 참조
+    - https://aihub.or.kr/aidata/7982
+    - https://mangomap.com/gis-data
+
+
+
+
+
+
+
 
 ### 데이터 분석(EDA)
 
