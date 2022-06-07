@@ -71,7 +71,7 @@
 
 ### Upsampling
 
-### Contour...
+### Contour
 
 ### Post-processing
 
