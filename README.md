@@ -166,7 +166,25 @@ for Visual Recognition)
 
 <br/>
 
-### 3.4 Contour
+### 3.4 Road Contour
+- Road Contour 실험목적 : Road Segmentation 성능 향상
+![img14](img/contour.png)
+
+- **Inference**
+![img15](img/contour_inference.png)
+
+- 도로 영역이 전반적으로 두껍게 검출됨
+- 폭이 얇은 두 도로의 경우 하나의 넓은 도로로 검출됨
+- 테두리가 울퉁불퉁하게 검출되는 부분은 확실히 완화 되었으나, 
+도로가 더 두꺼워져 성능이 오히려 저하됨
+
+
+### **_Road Contour Result_**
+![img16](img/contour_result.png)
+
+- Inference 확인 결과, 도로 사이의 간격이 좁은 경우 contour를 그리면서 위처럼 도로 사이의 틈이 contour의 두께에 뒤덮여
+소실되는 경우가 다수 발생
+- erosion 알고리즘은 위의 경우 폭이 넓은 한 덩어리의 도로로 인식하기 때문에, 도로 사이에 빈 background 검출 어려움
 
 <br/>
 
@@ -177,19 +195,19 @@ for Visual Recognition)
 - Super Resolution으로 upsampling 후 patch size를 조절해 학습
     - SRGAN : GAN 모델은 해상도가 향상되나 의도치 않은 artifacts 발생 및 원본의 특성이 훼손될 우려로 부적합하다고 판단
     - FSRCNN : upsampling 결과가 비슷한 다른 모델에 비해 처리 속도가 빨라서 실험에 적합하다고 판단
-![img14](img/sr.png)
+![img17](img/sr.png)
 
 ### **_Building_**
-![img15](img/building_sr.png)
+![img18](img/building_sr.png)
 
 ### **_road_**
-![img16](img/road_sr.png)
+![img19](img/road_sr.png)
 
 ### **_Upsampling Result_**
 - Dramatic하게 성능이 높아지진 않았음
 - SpaceNet 7 데이터셋은 건물 및 도로의 크기가 작아 upsampling의 효과를 본 것으로 보임
 - 반면 아리랑 데이터셋은 건물 및 도로가 비교적 크기에 효과가 적은 것으로 추정
-![7](img/sr_result.png)
+![img20](img/sr_result.png)
 
 <br/>
 
