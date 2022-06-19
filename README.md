@@ -105,8 +105,6 @@ for Visual Recognition)
 - **Inference**
 ![img6](img/building_level1_inference.png)
 
-<br/>
-
 ### **_road_**
 
 - **Model** : SegFomer(Simple and Efficient Design for Semantic Segmentation with Transformers)
@@ -173,11 +171,10 @@ for Visual Recognition)
 - **Inference**
 ![img15](img/contour_inference.png)
 
-- 도로 영역이 전반적으로 두껍게 검출됨
-- 폭이 얇은 두 도로의 경우 하나의 넓은 도로로 검출됨
-- 테두리가 울퉁불퉁하게 검출되는 부분은 확실히 완화 되었으나, 
-도로가 더 두꺼워져 성능이 오히려 저하됨
 
+    - 도로 영역이 전반적으로 두껍게 검출됨
+    - 폭이 얇은 두 도로의 경우 하나의 넓은 도로로 검출됨
+    - 테두리가 울퉁불퉁하게 검출되는 부분은 확실히 완화 되었으나, 도로가 더 두꺼워져 성능이 오히려 저하됨
 
 ### **_Road Contour Result_**
 ![img16](img/contour_result.png)
@@ -213,16 +210,51 @@ for Visual Recognition)
 
 ### 3.6 Test data 분석
 
+### **_Building_**
+- Labeling problem
+    - 육안 상 건물로 보이고, 모델도 건물로 예측한 부분이 정답 label에는 없음
+    - 건물로 판단하는 기준이 모호하고 일관성이 부족함 → Noisy Label
+        - 어느 정답 label에서는 건물로 masking되어 있지만, 다른 labeld에는 masking이 없음.
+        - 우리의 모델을 이 건물을 잘 인식하도록 oversampling하더라도, 평가 시 정답지에 이 건물에 대한 masking이 없는 경우도 있기 때문에 IoU는 하락할 것임.
+    - 이미지 가장자리에 위치한 건물들의 정답 label이 누락된 경우가 많음
 
+![img21](img/building_test.png)
 
+### **_road_**
+- Labeling problem
+    - 건물과 건물 사이 도로인데 정답 label에는 없음, 일관성이 없음
+    - 비포장 도로, 주차장, 활주로 등 경우에 따라 정답 label이 없음, 일관성이 없음 → Noisy Label
+    - 하나의 사진 내에서 도로로 masking된 비포장도로도 있고, 그렇지 않은 비포장도로도 있음
+    - 모델 또한 이러한 이유로 inference 를 잘 못함.
 
+![img22](img/road_test.png)
+
+### **_Test Data Analysis Result_**
+
+- Noisy Label
+    - 위성영상에서 Noisy Label의 문제는 항상 내재하며 판독관에 따라 건물 혹은 도로에 대한 정의가 다를 수 있기에 발생
+    - 라벨링 과정에서 상이한 판단기준을 조정하고 일관된 라벨을 생성하도록 노력하나 비일관성을 완전히 제거하기 어려움
+    - 이 문제는 건물보다 도로에 대한 라벨링 과정에서 극대화될 수 있음
+- 위성영상 모델 성능 향상
+    - Data-Driven 접근방식을 흔히 채택
+    - 유사한 Task의 데이터셋을 학습과정에 함께 사용하면 모델의 일반화 성능 향상 가능 → DeepGlobe 데이터셋 추가 실험
+
+<br/>
 
 ### 3.7 DeepGlobe 데이터셋 추가
 
+- DeepGlobe
+    - 2018년 Satellite Image Understanding Challenge
+    - 3가지 Challenge Tracks 중 Road Extraction Challenge Dataset을 추가하여 실험
+    - DeepGlobe 데이터의 GSD(Ground Sampling Distance)는 0.5m 
+    - 6226장의 train image 존재
+    - data를 추가하여 Robust하게 만듦을 목적으로 함.
+![img23](img/deepglobe.png)
 
+### **_Result of adding DeepGlobe Data_**
+![img24](img/deepglobe_train.png)
 
-
-
+<br/>
 
 ### 3.8 Post-processing
 
@@ -230,11 +262,9 @@ for Visual Recognition)
 
 
 
+<br/>
+
 ## 4. Level2 건물의 객체검출을 위한 학습을 수행
-
-
-
-
 
 ### 4.1 Pre-processing
 
@@ -242,16 +272,16 @@ for Visual Recognition)
 
 
 
+<br/>
+
 ### 4.2 Modeling
 
 
 
 
 
+<br/>
+
 ## 5. Level3 건물의 크기와 개수를 계산할 수 있도록 LV2결과를 이용해 Polygon형태로 나타내고 지도에 매핑
-
-
-
-
 
 ### 5.1 QGIS
