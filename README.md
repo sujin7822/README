@@ -333,10 +333,11 @@ for Visual Recognition)
 
 - 모델이 Inference한 결과이기에 건물 polygon의 경계면이 매끄럽지 못한 경우가 존재 -> RDP 알고리즘 이용
 - Ramer-Douglas-Peucker algorithm (1973)
+
 ![img35](img/rdp.gif)
-    - line 혹은 polygon을 나타나는데 필요한 point 수를 줄이는 알고리즘
-    - 원본보다 적은 point의 polyline을 생성하지만 특성과 모양을 유지
-    - 지도 렌더링 속도 향상, IoT 장치 간 통신 개선 등에 적용
+- line 혹은 polygon을 나타나는데 필요한 point 수를 줄이는 알고리즘
+- 원본보다 적은 point의 polyline을 생성하지만 특성과 모양을 유지
+- 지도 렌더링 속도 향상, IoT 장치 간 통신 개선 등에 적용
 
 ### **_Result of RDP_**
 ![img36](img/rdp_result.png)
