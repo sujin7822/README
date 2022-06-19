@@ -91,35 +91,35 @@
 ### 3.2 Modeling
 
 ### **_Building_**
-- Model : HRNet(Deep High-Resolution Representation Learning
+- **Model** : HRNet(Deep High-Resolution Representation Learning
 for Visual Recognition)
     - Human Pose Estimation 분야에서 SOTA 모델을 달성한 모델로 2019년 발표됨.
     - HRNet은 high-resolution representations를 전체 process 동안 유지하는 특징을 가지므로 모델 선정
 ![img4](img/hrnet.png)
 
-- Train
+- **Train**
     - 건물 면적이 50% 이상인 위성 영상은 적고, 평균적으로 20 ~ 30% 대 이기때문에, 건물 비율 100%, 95%, 90%, 85%에 대해 각각 모델 학습 진행
     - 학습 후 Building IoU 및 Inference 결과 비교
 ![img5](img/building_train.png)
 
-- Inference
+- **Inference**
 ![img6](img/building_level1_inference.png)
 
 <br/>
 
-#### **_road_**
+### **_road_**
 
-- Model : SegFomer(Simple and Efficient Design for Semantic Segmentation with Transformers)
+- **Model** : SegFomer(Simple and Efficient Design for Semantic Segmentation with Transformers)
     - encoder 와 decoder 모두에 transformer를 사용하여 efficiency, accuracy, robustness를 모두 고려한 모델
     - Semantic Segmenation의 경우 context 정보를 포함하도록 large receptive field를 유지하는 것이 핵심 문제인데, Hierarchical Transformer 계층적인 구조가 encoder의 핵심부분으로 CNN과 같이 high-resolution coarse feature와 low resolution fine feature 모두를 생성할 수 있도록 구성했으며, 타 모델에 비해 receptive field가 훨씬 크기때문에 모델 선정
 ![img7](img/segformer.png)
 
-- Train
+- **Train**
     - 도로 면적이 30% 이상인 위성 영상은 적고, 평균적으로 10 ~ 15% 대 이기때문에, 도로 비율 100%, 95%, 90%에 대해 각각 모델 학습 진행
     - 학습 후 Road IoU 및 Inference 결과 비교
 ![img5](img/road_train.png)
 
-- Inference
+- **Inference**
 ![img6](img/road_level1_inference.png)
 
 <br/>
