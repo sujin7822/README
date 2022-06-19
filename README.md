@@ -162,21 +162,7 @@ for Visual Recognition)
 
 ### **_Result_**
 
-1. 모델 / 데이터셋 특성에 적합한 손실 함수
-    * Cross entropy -> C.E / Focal + lovasz로 변경
-    * Test 결과, 파라미터가 같아도 건물 / 도로 별로 성능이 다름
-    ex) focal loss의 경우 건물은 성능 하락, 도로는 성능 향상
-2. Class weight 변경 -> [0.5, 1.0] 
-    * 1에 해당하는 클래스의 가중치를 2배로 부여함
-    * foreground의 손실에 더 집중
-    * 도로 및 건물 IoU 향상에 도움
-
-<br/><br/><br/><br/>
-
-
 ![img13](img/loss_result.png)
-
-
 
 <br/>
 
