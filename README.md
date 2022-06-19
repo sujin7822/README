@@ -41,8 +41,8 @@
 <table>
 <thead>
 	<tr align="center">
-		<th><div style="width:60px">이름</div></th>
-		<th><div style="width:60px">구성</div></th>
+		<th><div style="width:100px">이름</div></th>
+		<th><div style="width:100px">구성</div></th>
 		<th>역할</th>
 	</tr>
 </thead>
