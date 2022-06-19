@@ -68,12 +68,14 @@
 - 위성 영상마다 각각의 json 파일에 건물의 polygon 좌표가 존재 → 좌표를 토대로 masking
 - 너무 작게 보여 식별이 힘든 컨테이너 박스, 기타 건물 class는 제외하고 masking
 
-#### **_Building_**
+### **_Building_**
 > classes = (‘background’, ‘building’), palette = [[0, 0, 0], [0, 0, 255]]
 
 ![img2](img/building_masking.png)
 
-#### **_road_**
+<br/>
+
+### **_road_**
 > classes = (‘background’, ‘road’), palette = [[0, 0, 0], [255, 0, 255]]
 
 ![img3](img/road_masking.png)
@@ -81,29 +83,27 @@
 
 ### Modeling
 
-#### **_Building_**
+### **_Building_**
 
-#### **_Model_**
-
-- 사용모델 : HRNet(Deep High-Resolution Representation Learning
+- Model : HRNet(Deep High-Resolution Representation Learning
 for Visual Recognition)
-
-![img4](img/hrnet_architecture.png)
-
-    - Human Pose Estimation 분야에서 SOTA 모델을 달성한 모델로 2019년 발표됨.
-    - 대부분의 모델들은 high-resolution representations를 low-resolution representations로부터 복구하는데, 대체로 이런 모델들은 high-to-low resolution network이기 때문임. 
-    - 하지만 HRNet은 high-resolution representations를 전체 process 동안 유지함.
 
 ![img4](img/hrnet.png)
 
-    - 해상도를 input image의 1/4로 유지함. 기존 model들은 1/20, 1/16 정도로 유지했기 때문에 상대적으로 high resolution을 유지함.
+- Human Pose Estimation 분야에서 SOTA 모델을 달성한 모델로 2019년 발표됨.
+- HRNet은 high-resolution representations를 전체 process 동안 유지하는 특징을 가지므로 모델 선정
 
-##### **Train**
+- Train
+    - 건물 면적이 50% 이상인 위성 영상은 적고, 평균적으로 20 ~ 30% 대 이기때문에, 건물 비율 100%, 95%, 90%, 85%에 대해 각각 모델 학습 진행
+    - 학습 후 Building IoU 및 Inference 결과 비교
 
+![img5](img/building_train.png)
 
+- Inference
 
+![img6](img/building_level1_inference.png)
 
-
+<br/>
 
 #### **road**
 
