@@ -51,13 +51,6 @@
     - https://aihub.or.kr/aidata/7982
     - https://mangomap.com/gis-data
 
-
-
-
-
-
-
-
 ### 데이터 분석(EDA)
 
 
@@ -65,19 +58,66 @@
 
 ### Pre-processing
 
+- 위성 영상마다 각각의 json 파일에 건물의 polygon 좌표가 존재 → 좌표를 토대로 masking
+- 너무 작게 보여 식별이 힘든 컨테이너 박스, 기타 건물 class는 제외하고 masking
+
+#### Building
+
+> classes = (‘background’, ‘building’)
+> palette = [[0, 0, 0], [0, 0, 255]]
+
+![img1](img/building_masking.png)
+
+#### road
+
+> classes = (‘background’, ‘road’)
+> palette = [[0, 0, 0], [255, 0, 255]]
+
+![img1](img/road_masking.png)
+
+
 ### Modeling
+
+
+
+
+
 
 ### Loss Function research
 
+
+
+
+
 ### Upsampling
+
+
+
+
 
 ### Contour
 
+
+
+
+
 ### Post-processing
+
+
+
+
 
 ### Test data 분석
 
+
+
+
+
 ### 데이터셋 추가
+
+
+
+
 
 ## 4. Level2 건물의 객체검출을 위한 학습을 수행
 
