@@ -31,9 +31,9 @@
 <br/>
 
 ### 1.3 구성원 
-| 이름 | 구성 | 역할 |
-| :-----: | :-----: | :----------------------------: | 
-| 황무성 | 팀장 | 프로젝트 총괄, pre-processing, Road Segmentation 모델링, Instance Segmentation 모델링, 결과 분석 | 
+| <div style="width:60px">이름</div> | <div style="width:60px">구성</div> | 역할 |
+| :-----: | :-----: | :---------------------------- | 
+| 황무성 | 팀장 | 프로젝트 총괄, pre-processing, Road Segmentation 모델링, Instance Segmentation 모델링, GIS Mapping, 결과 분석 | 
 | 배재현 | 부팀장 | 일정 관리, pre-processing, Building Segmentation 모델링, 결과 분석, GIS Mapping, GCP 운용 | 
 | 권다현 | 팀원 | EDA, post-processing, Loss Function 비교 분석 | 
 | 양창민 | 팀원 | SpaceNet 자료조사, post-processing, Upsampling |
@@ -102,8 +102,10 @@ for Visual Recognition)
     - 학습 후 Building IoU 및 Inference 결과 비교
 ![img5](img/building_train.png)
 
-- **Inference**
+- **_Result of Building Semantic Segmentation_**
 ![img6](img/building_level1_inference.png)
+
+<br/>
 
 ### **_road_**
 
@@ -117,7 +119,7 @@ for Visual Recognition)
     - 학습 후 Road IoU 및 Inference 결과 비교
 ![img8](img/road_train.png)
 
-- **Inference**
+- **_Result of Road Semantic Segmentation_**
 ![img9](img/road_level1_inference.png)
 
 <br/>
@@ -143,6 +145,8 @@ for Visual Recognition)
 - **Inference**
 ![img11](img/building_loss.png)
 
+<br/>
+
 ### **_road_**
 
 - 각 회차별 best 결과 확인 (5회 X 5명, 총 25회 진행)
@@ -158,7 +162,7 @@ for Visual Recognition)
 - **Inference**
 ![img12](img/road_loss.png)
 
-### **_Loss Function research Result_**
+### **_Result of Loss Function research_**
 
 ![img13](img/loss_result.png)
 
@@ -176,7 +180,7 @@ for Visual Recognition)
     - 폭이 얇은 두 도로의 경우 하나의 넓은 도로로 검출됨
     - 테두리가 울퉁불퉁하게 검출되는 부분은 확실히 완화 되었으나, 도로가 더 두꺼워져 성능이 오히려 저하됨
 
-### **_Road Contour Result_**
+### **_Result of Road Contour_**
 ![img16](img/contour_result.png)
 
 - Inference 확인 결과, 도로 사이의 간격이 좁은 경우 contour를 그리면서 위처럼 도로 사이의 틈이 contour의 두께에 뒤덮여
@@ -200,7 +204,7 @@ for Visual Recognition)
 ### **_road_**
 ![img19](img/road_sr.png)
 
-### **_Upsampling Result_**
+### **_Result of Upsampling_**
 - Dramatic하게 성능이 높아지진 않았음
 - SpaceNet 7 데이터셋은 건물 및 도로의 크기가 작아 upsampling의 효과를 본 것으로 보임
 - 반면 아리랑 데이터셋은 건물 및 도로가 비교적 크기에 효과가 적은 것으로 추정
@@ -220,6 +224,8 @@ for Visual Recognition)
 
 ![img21](img/building_test.png)
 
+<br/>
+
 ### **_road_**
 - Labeling problem
     - 건물과 건물 사이 도로인데 정답 label에는 없음, 일관성이 없음
@@ -229,7 +235,7 @@ for Visual Recognition)
 
 ![img22](img/road_test.png)
 
-### **_Test Data Analysis Result_**
+### **_Result of Test Data Analysis_**
 
 - Noisy Label
     - 위성영상에서 Noisy Label의 문제는 항상 내재하며 판독관에 따라 건물 혹은 도로에 대한 정의가 다를 수 있기에 발생
@@ -258,30 +264,113 @@ for Visual Recognition)
 
 ### 3.8 Post-processing
 
+- Level1 Inference 결과 확인 -> 도로 끊김, 노이즈 문제 발견
+- 결과에 대해 후처리를 하기 위해 모폴로지(Morphology)연산을 이용
+- 모폴로지(Morphology) 
+    - 전처리(pre-processing) 또는 후처리(post-processing) 에 널리 사용되는 형태학적 연산
+    - 닫힘(팽창 후 침식), 열림(침식 후 팽창) 연산 등이 있음
+![img25](img/post_processing.png)
 
+### **_Result of Post-processing_**
 
-
+![img26](img/post_processing_result.png)
+![img27](img/post_processing_iouresult.png)
 
 <br/>
 
 ## 4. Level2 건물의 객체검출을 위한 학습을 수행
 
-### 4.1 Pre-processing
+### 4.1 Overview
+- 위성영상분석의 목적은 시각적으로 향상된 분석결과를 제공
+- 건물 간 ID를 부여할 수 있도록 독립된 객체로 분리하거나, 분리된 결과가 도출되어야 함
+- 위성영상으로부터 관찰된 건물은 밀집되어 건물 객체 간 시각적 분리가 어려울 수 있기에, 딥러닝 모델은 건물과 건물 사이
+불확실성이 높은 부분을 건물로 판단해버릴 수 있음
+![img28](img/level2_overview.png)
+    - 건물 경계를 매우 정확하게 감지하지 못하는 한계
+    - 날카로운 모서리 대신 부드러운 모서리를 예측
+    - 건물이 가까이 있는 인구 밀집 지역에서 특히 문제
 
-
-
-
+- Building Instance Segmentation을 위해 인스턴스 분할을 위해서는 동일한 객체의 주변 항목을 분리하는 것이 필수
 
 <br/>
 
-### 4.2 Modeling
+### 4.2 Pre-processing
+- 객체 간 구분을 용이하게 하기 위하여 객체의 경계 부분인 Edge(Contour) 클래스 추가
+- 인접한 객체를 분할하여 Instance 생성에 초점
+- Edge(Contour) 클래스는 3pixel로 masking
 
+> classes = (‘background’, ‘building’, ‘edge’), palette = [[0, 0, 0], [0, 0, 255], [255, 0, 0]]
 
+![img29](img/level2_masking.png)
 
+<br/>
 
+### 4.3 Modeling
+
+- Background, Building, Edge (Contour) 모델 학습 진행
+- 학습 후 Inference 결과에서 Edge Class를 Background Class로 변경
+![img30](img/level2_train.png)
+
+### **_Result of Building Instance Segmentation_**
+![img31](img/level2_inference.png)
 
 <br/>
 
 ## 5. Level3 건물의 크기와 개수를 계산할 수 있도록 LV2결과를 이용해 Polygon형태로 나타내고 지도에 매핑
 
-### 5.1 QGIS
+### 5.1 Polygonization
+- Semantic Segmentation 기반 Polygonization
+![img32](img/level3_polygonization.png)
+
+-  Level 2의 Inference 결과 (위성 영상 + segmentation map)에서 polygonize를 수행하기 위해 segmentation map만 추출
+![img33](img/level3_segmentation_map.png)
+
+- Shapely 패키지
+    - 평면 기하학적 객체의 조작 및 분석을 위한 파이썬 패키지 → 이를 이용해 segmentation map을 polygonize
+    - cv2 라이브러리의 findContours()와 Shapely 패키지의 Polygon()으로 건물의 polygon 생성
+![img34](img/level3_shapely.png)
+
+- 모델이 Inference한 결과이기에 건물 polygon의 경계면이 매끄럽지 못한 경우가 존재 -> RDP 알고리즘 이용
+- Ramer-Douglas-Peucker algorithm (1973)
+![img35](img/rdp.gif)
+    - line 혹은 polygon을 나타나는데 필요한 point 수를 줄이는 알고리즘
+    - 원본보다 적은 point의 polyline을 생성하지만 특성과 모양을 유지
+    - 지도 렌더링 속도 향상, IoT 장치 간 통신 개선 등에 적용
+
+### **_Result of RDP_**
+![img36](img/rdp_result.png)
+
+<br/>
+
+### 5.2 Transforming Coordinates
+- 현재 각 polygon들의 좌표는 1024 x 1024 사이즈의 이미지 내에서 pixel 좌표로 표현 → 실제 지구 좌표계로 변환 필요
+- Rasterio 패키지
+    - 지리 공간 raster 데이터 읽기 및 쓰기
+    - 지리 정보 시스템은 GeoTIFF 및 기타 형식을 사용해 grid 혹은 raster 데이터셋을 구성하고 저장
+    - Rasterio는 이러한 형식을 읽고 쓰고 ndarray를 기반으로 하는 Python API를 제공
+- Rasterio 패키지로 tif 파일을 로드해 위성 영상의 bounds (상하좌우 좌표) 및 CRS (지리 좌표계) 추출
+    - bounds를 기준으로 앞서 생성한 polygon들의 geometry 재계산
+    - 위성 영상마다 CRS가 다른 경우가 존재 → 각 위성 영상에서 추출한 CRS로 좌표 변환 수행
+![img37](img/transforming_coordinates.png)
+
+- 좌표가 변환된 polygon들이 포함된 GeoDataFrame을 shp 파일로 저장
+
+<br/>
+
+### 5.3 Mapping
+
+![img38](img/mapping_result1.png)
+![img39](img/mapping_result2.png)
+![img40](img/mapping_result3.png)
+
+<br/>
+
+## 6. 프로젝트 회고
+
+| <div style="width:60px">이름</div> | 회고 |
+| :-----: | :---------------------------- | 
+| 황무성 | 프로젝트를 통해 Segmentation Task를 한층 더 깊이 이해하게 되어서 좋았고, 위성사진이 다양한 분야에서 응용될 수 있다는 것을 느꼈습니다. 또한 여기서 멈추지 않고 건물과 도로를 더 잘 검출할수있는 방법론을 추후 찾아보고 싶고, 뿐만아니라 관심객체, 구름, 수계검출 프로젝트를 해보고 싶습니다.  | 
+| 배재현 | 위성영상이 굉장히 다양한 분야에 활용되고 있다는 것이 놀라웠고, Segmentation Task에 대해 공부가 된 것 같아 좋았습니다. | 
+| 권다현 | 평소 관심있던 Segmentation Task를 깊게 수행해 볼 수 있는 기회여서 좋았습니다! 5주 동안 쉬지 않고 달려온 우리 팀원들 최고 ~~~~~ ❤ | 
+| 양창민 | 딥러닝을 배우고 처음 접한 Segmentation 프로젝트라서 힘들었지만, 잊지 못할 추억을 얻었습니다. 다들 고생하셨습니다! |
+| 남궁재원 | dobby is free. |
