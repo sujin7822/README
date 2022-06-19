@@ -160,7 +160,7 @@ for Visual Recognition)
 - **Inference**
 ![img12](img/road_loss.png)
 
-### **_Result_**
+### **_Loss Function research Result_**
 
 ![img13](img/loss_result.png)
 
@@ -172,9 +172,26 @@ for Visual Recognition)
 
 ### 3.5 Upsampling
 
+- Upsampling : Pooling 레이어를 거치면서 축소된 피처맵을 원본 이미지의 크기로 되돌리기 위해서 사용하는 방법. 단순히 이미지 형태를 유지하면서 픽셀 행/열 수 또는 둘다 늘리는 방법으로 공간 해상도를 증가시키는 것을 뜻함.
+- 이미지의 적당한 해상도는 작은 공간을 추출할 때 상당한 문제 → Upsampling을 통해 성능 향상기대
+- Super Resolution으로 upsampling 후 patch size를 조절해 학습
+    - SRGAN : GAN 모델은 해상도가 향상되나 의도치 않은 artifacts 발생 및 원본의 특성이 훼손될 우려로 부적합하다고 판단
+    - FSRCNN : upsampling 결과가 비슷한 다른 모델에 비해 처리 속도가 빨라서 실험에 적합하다고 판단
+![img14](img/sr.png)
 
+### **_Building_**
+![img15](img/building_sr.png)
 
+### **_road_**
+![img16](img/road_sr.png)
 
+### **_Upsampling Result_**
+- Dramatic하게 성능이 높아지진 않았음
+- SpaceNet 7 데이터셋은 건물 및 도로의 크기가 작아 upsampling의 효과를 본 것으로 보임
+- 반면 아리랑 데이터셋은 건물 및 도로가 비교적 크기에 효과가 적은 것으로 추정
+![7](img/sr_result.png)
+
+<br/>
 
 ### 3.6 Test data 분석
 
