@@ -5,8 +5,8 @@
 * 모두의연구소 산하 인공지능 교육기관 AIFFEL과 인공지능 기반 위성/항공 영상 분석 전문기업 SI Analytics가 협력하여 진행된 기업 연계 해커톤 프로젝트로서, [위성영상 객체분할을 위한 의미론적 분할 기술] 주제에 대해 SIA로 부터 제공 받은 위성 데이터를 기반으로 프로젝트를 진행하였습니다.
 
 
-# 1. 프로젝트 소개
-## 개요
+## 1. 프로젝트 소개
+### 개요
 - 주제 : **위성영상 객체분할을 위한 의미론적 분할 기술**  
 - 기간 : 2021.04.25(월)  ~ 2021.06.09(목)  
 - 방식 : 팀 프로젝트
@@ -16,7 +16,7 @@
     * 인공지능 분석결과를 육안으로 분석해야하는 한계를 넘기 위해 Instance Segmentation 분석 수요 증가.
     * 객체의 ID가 구분되는 Instance Segmentation은 향후 고차원적인 분석방법을 지원.
 
-## 프로젝트 목표
+### 프로젝트 목표
 - 위성 영상에서 건물과 도로를 식별하고 객체를 분할한다.
     - 건물, 도로 각각 Semantic Segmentation
 - 레벨별 스텝
@@ -24,7 +24,7 @@
     - [LV2] 건물의 객체검출을 위한 학습을 수행한다. (어려움 ★★☆☆☆)
     - [LV3] 건물의 크기와 개수를 계산할 수 있도록 LV2결과를 이용해 Polygon형태로 나타내고 지도에 매핑한다. (일반 ★★☆☆☆)
 
-## 구성원 
+### 구성원 
 | 이름 | 구성 | 역할 |
 | :-----: | :-----: | :----------------------------: | 
 | 황무성 | 팀장 | 프로젝트 총괄, pre-processing, Road Segmentation 모델링, Instance Segmentation 모델링, 결과 분석 | 
@@ -33,13 +33,13 @@
 | 양창민 | 팀원 | SpaceNet 자료조사, post-processing, Upsampling |
 | 남궁재원 | 팀원 | EDA, Road Contour 모델링 |
 
-## 기술 스택
+### 기술 스택
 - Pytorch, MMSegmentation, OpenCV, PIL, QGIS, Pandas, numpy, Matplotlib, Seaborn 외
 
 
-# 2. 데이터 정의 및 EDA
+## 2. 데이터 정의 및 EDA
 
-## 데이터셋 정의
+### 데이터셋 정의
 - 아리랑 3A호 (KOMPSAT-3A)에서 취득한 위성영상 패치
     - Scene형태의 영상을 AI를 위해서 1024 크기의 패치로 자른 형태
     - RGB3채널로 생성된 영상 활용
@@ -53,7 +53,7 @@
     - https://aihub.or.kr/aidata/7982
     - https://mangomap.com/gis-data
 
-## 데이터 분석(EDA)
+### 데이터 분석(EDA)
 
 
 
@@ -62,28 +62,28 @@
 
 
 
-# 3. Level1 건물과 도로를 각각 검출하고 결과를 합쳐서 분석
+## 3. Level1 건물과 도로를 각각 검출하고 결과를 합쳐서 분석
 
-## Pre-processing
+### Pre-processing
 - 위성 영상마다 각각의 json 파일에 건물의 polygon 좌표가 존재 → 좌표를 토대로 masking
 - 너무 작게 보여 식별이 힘든 컨테이너 박스, 기타 건물 class는 제외하고 masking
 
-### **Building**
+#### **_Building_**
 > classes = (‘background’, ‘building’), palette = [[0, 0, 0], [0, 0, 255]]
 
 ![img2](img/building_masking.png)
 
-### **road**
+#### **_road_**
 > classes = (‘background’, ‘road’), palette = [[0, 0, 0], [255, 0, 255]]
 
 ![img3](img/road_masking.png)
 
 
-## Modeling
+### Modeling
 
-### **Building**
+#### **_Building_**
 
-#### **Model**
+#### **_Model_**
 
 - 사용모델 : HRNet(Deep High-Resolution Representation Learning
 for Visual Recognition)
@@ -98,14 +98,14 @@ for Visual Recognition)
 
     - 해상도를 input image의 1/4로 유지함. 기존 model들은 1/20, 1/16 정도로 유지했기 때문에 상대적으로 high resolution을 유지함.
 
-#### **Train**
+##### **Train**
 
 
 
 
 
 
-### **road**
+#### **road**
 
 
 
@@ -113,48 +113,48 @@ for Visual Recognition)
 
 
 
-## Loss Function research
+### Loss Function research
 
 
 
 
 
-## Upsampling
+### Upsampling
 
 
 
 
 
-## Contour
+### Contour
 
 
 
 
 
-## Post-processing
+### Post-processing
 
 
 
 
 
-## Test data 분석
+### Test data 분석
 
 
 
 
 
-## 데이터셋 추가
+### 데이터셋 추가
 
 
 
 
 
-# 4. Level2 건물의 객체검출을 위한 학습을 수행
+## 4. Level2 건물의 객체검출을 위한 학습을 수행
 
-## Pre-processing
+### Pre-processing
 
-## Modeling
+### Modeling
 
-# 5. Level3 건물의 크기와 개수를 계산할 수 있도록 LV2결과를 이용해 Polygon형태로 나타내고 지도에 매핑
+## 5. Level3 건물의 크기와 개수를 계산할 수 있도록 LV2결과를 이용해 Polygon형태로 나타내고 지도에 매핑
 
-## QGIS
+### QGIS
