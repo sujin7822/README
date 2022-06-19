@@ -32,48 +32,13 @@
 
 ### 1.3 구성원 
 
-<style>
-  th {
-      text-align: center;
-  }
-</style>
-
-<table>
-<thead>
-	<tr align="center">
-		<th><div style="width:80px">이름</div></th>
-		<th><div style="width:80px">구성</div></th>
-		<th><div style="width:300px">역할</div></th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td align="center">황무성</td>
-		<td align="center">팀장</td>
-		<td>프로젝트 총괄, pre-processing, Road Segmentation 모델링, Instance Segmentation 모델링, GIS Mapping, 결과 분석</td>
-	</tr>
-	<tr>
-		<td align="center">배재현</td>
-		<td align="center">부팀장</td>
-		<td>일정 관리, pre-processing, Building Segmentation 모델링, 결과 분석, GIS Mapping, GCP 운용</td>
-	</tr>
-	<tr>
-		<td align="center">권다현</td>
-		<td align="center">팀원</td>
-		<td>EDA, post-processing, Loss Function 비교 분석</td>
-	</tr>
-	<tr>
-		<td align="center">양창민</td>
-		<td align="center">팀원</td>
-		<td>SpaceNet 자료조사, post-processing, Upsampling</td>
-	</tr>
-	<tr>
-		<td align="center">남궁재원</td>
-		<td align="center">팀원</td>
-		<td>EDA, Road Contour 모델링</td>
-	</tr>    
-</tbody>
-</table>
+| 이름  | 구성  | 역할  |
+| :-----: | :-----: | ---------------------------- | 
+| 황무성  | 팀장 | 프로젝트 총괄, pre-processing, Road Segmentation 모델링, Instance Segmentation 모델링, GIS Mapping, 결과 분석 | 
+| 배재현 | 부팀장 | 일정 관리, pre-processing, Building Segmentation 모델링, 결과 분석, GIS Mapping, GCP 운용 | 
+| 권다현 | 팀원 | EDA, post-processing, Loss Function 비교 분석 | 
+| 양창민 | 팀원 | SpaceNet 자료조사, post-processing, Upsampling |
+| 남궁재원  | 팀원 | EDA, Road Contour 모델링 |
 
 <br/>
 
@@ -368,10 +333,11 @@ for Visual Recognition)
 
 - 모델이 Inference한 결과이기에 건물 polygon의 경계면이 매끄럽지 못한 경우가 존재 -> RDP 알고리즘 이용
 - Ramer-Douglas-Peucker algorithm (1973)
+
 ![img35](img/rdp.gif)
-    - line 혹은 polygon을 나타나는데 필요한 point 수를 줄이는 알고리즘
-    - 원본보다 적은 point의 polyline을 생성하지만 특성과 모양을 유지
-    - 지도 렌더링 속도 향상, IoT 장치 간 통신 개선 등에 적용
+- line 혹은 polygon을 나타나는데 필요한 point 수를 줄이는 알고리즘
+- 원본보다 적은 point의 polyline을 생성하지만 특성과 모양을 유지
+- 지도 렌더링 속도 향상, IoT 장치 간 통신 개선 등에 적용
 
 ### **_Result of RDP_**
 ![img36](img/rdp_result.png)
@@ -403,33 +369,10 @@ for Visual Recognition)
 
 ## 6. 프로젝트 회고
 
-<table>
-<thead>
-	<tr align="center">
-		<th><div style="width:60px">이름</div></th>
-		<th>회고</th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td align="center">황무성</td>
-		<td>프로젝트를 통해 Segmentation Task를 한층 더 깊이 이해하게 되어서 좋았고, 위성사진이 다양한 분야에서 응용될 수 있다는 것을 느꼈습니다. 또한 여기서 멈추지 않고 건물과 도로를 더 잘 검출할수있는 방법론을 추후 찾아보고 싶고, 뿐만아니라 관심객체, 구름, 수계검출 프로젝트를 해보고 싶습니다.</td>
-	</tr>
-	<tr>
-		<td align="center">배재현</td>
-		<td>위성영상이 굉장히 다양한 분야에 활용되고 있다는 것이 놀라웠고, Segmentation Task에 대해 공부가 된 것 같아 좋았습니다.</td>
-	</tr>
-	<tr>
-		<td align="center">권다현</td>
-		<td>평소 관심있던 Segmentation Task를 깊게 수행해 볼 수 있는 기회여서 좋았습니다! 5주 동안 쉬지 않고 달려온 우리 팀원들 최고 ~~~~~ ❤</td>
-	</tr>
-	<tr>
-		<td align="center">양창민</td>
-		<td>딥러닝을 배우고 처음 접한 Segmentation 프로젝트라서 힘들었지만, 잊지 못할 추억을 얻었습니다. 다들 고생하셨습니다!</td>
-	</tr>
-	<tr>
-		<td align="center">남궁재원</td>
-		<td>dobby is free.</td>
-	</tr>    
-</tbody>
-</table>
+| 이름 | 회고 |
+| :---------------------------------------: | :---------------------------- | 
+| 황무성 | 프로젝트를 통해 Segmentation Task를 한층 더 깊이 이해하게 되어서 좋았고, 위성사진이 다양한 분야에서 응용될 수 있다는 것을 느꼈습니다. 또한 여기서 멈추지 않고 건물과 도로를 더 잘 검출할수있는 방법론을 추후 찾아보고 싶고, 뿐만아니라 관심객체, 구름, 수계검출 프로젝트를 해보고 싶습니다.  | 
+| 배재현 | 위성영상이 굉장히 다양한 분야에 활용되고 있다는 것이 놀라웠고, Segmentation Task에 대해 공부가 된 것 같아 좋았습니다. | 
+| 권다현 | 평소 관심있던 Segmentation Task를 깊게 수행해 볼 수 있는 기회여서 좋았습니다! 5주 동안 쉬지 않고 달려온 우리 팀원들 최고 ~~~~~ ❤ | 
+| 양창민 | 딥러닝을 배우고 처음 접한 Segmentation 프로젝트라서 힘들었지만, 잊지 못할 추억을 얻었습니다. 다들 고생하셨습니다! |
+| 남궁재원 | dobby is free. |
