@@ -31,7 +31,7 @@
 <br/>
 
 ### 1.3 구성원 
-| <div style="width:60px">이름</div> | <div style="width:60px">구성</div> | 역할 |
+| <span style="display: inline-block; width:60px">이름</span> | <span style="display: inline-block; width:60px">구성</span> | 역할 |
 | :-----: | :-----: | :---------------------------- | 
 | 황무성 | 팀장 | 프로젝트 총괄, pre-processing, Road Segmentation 모델링, Instance Segmentation 모델링, GIS Mapping, 결과 분석 | 
 | 배재현 | 부팀장 | 일정 관리, pre-processing, Building Segmentation 모델링, 결과 분석, GIS Mapping, GCP 운용 | 
@@ -367,7 +367,7 @@ for Visual Recognition)
 
 ## 6. 프로젝트 회고
 
-| <div style="width:60px">이름</div> | 회고 |
+| <span style="display: inline-block; width:60px">이름</span> | 회고 |
 | :-----: | :---------------------------- | 
 | 황무성 | 프로젝트를 통해 Segmentation Task를 한층 더 깊이 이해하게 되어서 좋았고, 위성사진이 다양한 분야에서 응용될 수 있다는 것을 느꼈습니다. 또한 여기서 멈추지 않고 건물과 도로를 더 잘 검출할수있는 방법론을 추후 찾아보고 싶고, 뿐만아니라 관심객체, 구름, 수계검출 프로젝트를 해보고 싶습니다.  | 
 | 배재현 | 위성영상이 굉장히 다양한 분야에 활용되고 있다는 것이 놀라웠고, Segmentation Task에 대해 공부가 된 것 같아 좋았습니다. | 
