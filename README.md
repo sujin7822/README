@@ -31,7 +31,32 @@
 <br/>
 
 ### 1.3 구성원 
-| 이름 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 구성 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 역할 |
+
+<table>
+<thead>
+	<tr>
+		<th>이름</th>
+		<th>구성</th>
+		<th>역할ㅉ</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>Column 1</td>
+		<td>Column 2</td>
+		<td>Column 3</td>
+	</tr>
+	<tr>
+		<td>Custom Table Content</td>
+		<td>Column 4</td>
+		<td>Column 5</td>
+	</tr>
+</tbody>
+</table>
+
+
+
+| 이름 | 구성  | 역할  |
 | :-----: | :-----: | ---------------------------- | 
 | 황무성 | 팀장 | 프로젝트 총괄, pre-processing, Road Segmentation 모델링, Instance Segmentation 모델링, GIS Mapping, 결과 분석 | 
 | 배재현 | 부팀장 | 일정 관리, pre-processing, Building Segmentation 모델링, 결과 분석, GIS Mapping, GCP 운용 | 
