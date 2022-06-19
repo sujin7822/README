@@ -134,32 +134,30 @@ for Visual Recognition)
 
 - 각 회차별 best 결과 확인 (5회 X 5명, 총 25회 진행)
 
-| case | loss function | IoU | mIoU | model | loss weight | class weight | alpha |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | C.E loss | 83.09 | 88.24 | HRNet | 1.0 | [0.5, 1.0] | |
-| 2 | C.E loss | 82.89 | 88.02 | HRNet | 1.0 | [0.3, 0.7] | |
-| 3 | Focal loss | 81.94 | 87.53 | HRNet | 1.0 | None | |
-| 4 | C.E + Lovasz loss | 83.49 | 88.51 | HRNet | 0.8, 0.2 | [0.5, 1.0] | 0.8 |
-| 5 | Lovasz loss | 83.33 | 88.47 | HRNet | 1.0 | [0.3, 0.7] | |
+    | case | loss function | IoU | mIoU | model | loss weight | class weight | alpha |
+    | --- | --- | --- | --- | --- | --- | --- | --- |
+    | 1 | C.E loss | 83.09 | 88.24 | HRNet | 1.0 | [0.5, 1.0] | |
+    | 2 | C.E loss | 82.89 | 88.02 | HRNet | 1.0 | [0.3, 0.7] | |
+    | 3 | Focal loss | 81.94 | 87.53 | HRNet | 1.0 | None | |
+    | 4 | C.E + Lovasz loss | 83.49 | 88.51 | HRNet | 0.8, 0.2 | [0.5, 1.0] | 0.8 |
+    | 5 | Lovasz loss | 83.33 | 88.47 | HRNet | 1.0 | [0.3, 0.7] | |
 
 - **Inference**
-
 ![img11](img/building_loss.png)
 
 ### **_road_**
 
 - 각 회차별 best 결과 확인 (5회 X 5명, 총 25회 진행)
 
-| case | loss function | IoU | mIoU | model | loss weight | class weight | alpha |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | C.E loss | 62.87 | 78.64 | SegFormer | 1.0 | [0.5, 1.0] | |
-| 2 | C.E loss | 62.53 | 78.42 | SegFormer | 1.0 | [0.3, 0.7] | |
-| 3 | Focal loss | 63.04 | 78.93 | SegFormer | 1.0 | [0.5, 1.0] | 0.2 |
-| 4 | Focal + Lovasz loss | 63.7 | 79.28 | SegFormer | 0.8, 0.2 | [0.5, 1.0] | 0.8 |
-| 5 | Focal + Lovasz loss | 63.66 | 79.25 | SegFormer | 0.8, 0.2 | [0.5, 1.0] | 0.2 |
+    | case | loss function | IoU | mIoU | model | loss weight | class weight | alpha |
+    | --- | --- | --- | --- | --- | --- | --- | --- |
+    | 1 | C.E loss | 62.87 | 78.64 | SegFormer | 1.0 | [0.5, 1.0] | |
+    | 2 | C.E loss | 62.53 | 78.42 | SegFormer | 1.0 | [0.3, 0.7] | |
+    | 3 | Focal loss | 63.04 | 78.93 | SegFormer | 1.0 | [0.5, 1.0] | 0.2 |
+    | 4 | Focal + Lovasz loss | 63.7 | 79.28 | SegFormer | 0.8, 0.2 | [0.5, 1.0] | 0.8 |
+    | 5 | Focal + Lovasz loss | 63.66 | 79.25 | SegFormer | 0.8, 0.2 | [0.5, 1.0] | 0.2 |
 
 - **Inference**
-
 ![img12](img/road_loss.png)
 
 
