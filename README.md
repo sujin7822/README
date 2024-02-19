@@ -107,11 +107,11 @@
 <br/>
 
 ### **_Compare with Dense Unet_**
-<정량>
+**<정량>**
 ![image](https://github.com/sujin7822/README/assets/122075306/91bb2eb5-8c73-4adc-a1eb-9c6bee7f362b)
 - 앞선 기대와는 다르게 평가지표에서 Inception + Pyramid Unet의 sensitivity에서 성능이 좋지 않고 ​다른 지표들 또한 높은 폭으로 상승하지 x
 
-<정성>
+**<정성>**
 ![image](https://github.com/sujin7822/README/assets/122075306/1d11ee01-7384-412d-811b-7467c3e5b169)
 - 빨간 색 원을 비교해 보시면 Unet이 Inception + Pyramid Unet보다 미세혈관을 더 잘 표현
 - 파란색 원을 보시면 Unet이 Inception + Pyramid Unet보다 깔끔한 segmentation을 수행
@@ -119,7 +119,9 @@
 <br/>
 
 ### **_Wrap up_**
-
+- Unet이 미세혈관 부분을 Inception + Pyramid Unet보다 잘 구현​
+- Inception + Pyramid Unet 이 Unet보다 깔끔하고 정확한 Segmentation을 하지 X
+- 왜? Pyramid Pooling 때문
 <br/>
 
 ### 3.3 SD Unet
