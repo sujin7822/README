@@ -73,10 +73,18 @@
 <br/>
 
 ### 3.3 SD Unet
+- **Model** : SD Unet
+    - Unet을 기본 구조로 하고 Inception Module과 Pyramid Pooling Module을 통합함
+       - inception Module : 다양한 kernel size를 사용함으로써 다양한 크기의 혈관의 feature를 반영하는 feature map을 구성
+       - Pyramid Pooling Module : 여러 다양한 크기의 피라미드 영역을 생성하고, 각 영역에 대해 풀링 연산을 수행한 후, 이를 합치는 방식으로 작동함으로써 다양한 크기의 혈관 및 구조에 대한 정보를 통합
+         
+<p align="center">
+  <img src="https://github.com/sujin7822/README/assets/122075306/eae77ca8-4542-42f3-b836-26f69c6ecdc5" alt="Image1" width="300" height="200" />
+  <img src="https://github.com/sujin7822/README/assets/122075306/1e1731ca-3aea-461e-bf5b-631c967b589b" alt="Image2" width="300" height="100" />
+  <img src="https://github.com/sujin7822/README/assets/122075306/196fdb50-c788-4de3-81a9-ed6a6458bfee" width="300" height="200" />
+</p>
 
-- EDA를 통해 데이터셋이 가진 Class Imbalance 문제를 발견
-- Loss Function 변경하여, Minor class의 Loss에 더 큰 가중치를 주는 방법인 Re-weighting 에 집중
-![img10](img/loss.png)
+<br/>
 
 ### **FG**
 
