@@ -104,6 +104,7 @@
   <img src="https://github.com/sujin7822/README/assets/122075306/6bf4eea8-4f32-42a3-b6e1-9fa21e1748bc" alt="Image3" width="300" height="200" />
 </p>
 
+<br/>
 
 ### **_Compare with Dense Unet_**
 <정량>
@@ -114,9 +115,6 @@
 ![image](https://github.com/sujin7822/README/assets/122075306/1d11ee01-7384-412d-811b-7467c3e5b169)
 - 빨간 색 원을 비교해 보시면 Unet이 Inception + Pyramid Unet보다 미세혈관을 더 잘 표현
 - 파란색 원을 보시면 Unet이 Inception + Pyramid Unet보다 깔끔한 segmentation을 수행
-
-![image](https://github.com/sujin7822/README/assets/122075306/4c92d8f7-3891-46b0-8a74-ffa56fc2fbe7)
-
 
 <br/>
 
