@@ -99,9 +99,9 @@
        - Pyramid Pooling Module : 여러 다양한 크기의 피라미드 영역을 생성하고, 각 영역에 대해 풀링 연산을 수행한 후, 이를 합치는 방식으로 작동함으로써 다양한 크기의 혈관 및 구조에 대한 정보를 통합
          
 <p align="center">
-  <img src="https://github.com/sujin7822/README/assets/122075306/988f48e9-e9d6-4ef5-ac63-17231fc0badd" alt="Image1" width="300" height="100" />
+  <img src="https://github.com/sujin7822/README/assets/122075306/988f48e9-e9d6-4ef5-ac63-17231fc0badd" alt="Image1" width="300" height="200" />
   <img src="https://github.com/sujin7822/README/assets/122075306/0e999b63-553d-443a-9f78-cfbcab754500" alt="Image2" width="300" height="100" />
-  <img src="https://github.com/sujin7822/README/assets/122075306/6bf4eea8-4f32-42a3-b6e1-9fa21e1748bc" alt="Image3" width="300" height="100" />
+  <img src="https://github.com/sujin7822/README/assets/122075306/6bf4eea8-4f32-42a3-b6e1-9fa21e1748bc" alt="Image3" width="300" height="20" />
 </p>
 
 
