@@ -36,7 +36,7 @@
 <br/>
 
 ### 1.4 기술 스택
-- tensorflow, Pytorch, OpenCV, PIL, QGIS, Pandas, numpy, Matplotlib, Seaborn 외
+- Tensorflow, Pytorch, OpenCV, PIL, QGIS, Pandas, numpy, Matplotlib, Seaborn 외
 
 <br/>
 
