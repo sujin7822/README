@@ -95,8 +95,8 @@
 ### 3.2 Inception + Pyramid Unet
 - **Model** : Inception + Pyramid Unet
     - Unet을 기본 구조로 하고 Inception Module과 Pyramid Pooling Module을 통합함
-          - inception Module : 
-          - Pyramid Pooling Module : 
+       - inception Module :
+       - Pyramid Pooling Module : 
 ![image](https://github.com/sujin7822/README/assets/122075306/dc1ed1b3-2e33-44d5-9889-1b5966bc5302)
 
 
