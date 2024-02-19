@@ -64,7 +64,7 @@
 
 ## 3. Modeling
 
-![image](https://github.com/sujin7822/README/assets/122075306/a1f68bec-1875-4e42-bf36-430c3ba77b46)
+![image](https://github.com/sujin7822/README/assets/122075306/591f99c8-9fd5-4e8c-9c0e-d5a7508e5c51)
 
 
 ### 3.1 Pre-processing
