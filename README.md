@@ -20,12 +20,8 @@
 <br/>
 
 ### 1.2 프로젝트 목표
-- 안저 사진에서 Vessel를 Segmentation 한다.
+- 다양한 model과 data generator를 개발 후 정량, 정성평가를 통해 성능 좋은 model과 data generator를 찾는다.
     - Vessel Segmentation
-- 레벨별 스텝
-    - [LV1] 건물과 도로를 각각 검출하고 결과를 합쳐서 분석한다. (일반 ★☆☆☆☆)
-    - [LV2] 건물의 객체검출을 위한 학습을 수행한다. (어려움 ★★☆☆☆)
-    - [LV3] 건물의 크기와 개수를 계산할 수 있도록 LV2결과를 이용해 Polygon형태로 나타내고 지도에 매핑한다. (일반 ★★☆☆☆)
 
 <br/>
 
