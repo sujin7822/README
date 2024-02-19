@@ -36,7 +36,7 @@
 <br/>
 
 ### 1.4 기술 스택
-- Pytorch, MMSegmentation, OpenCV, PIL, QGIS, Pandas, numpy, Matplotlib, Seaborn 외
+- tensorflow, Pytorch, OpenCV, PIL, QGIS, Pandas, numpy, Matplotlib, Seaborn 외
 
 <br/>
 
