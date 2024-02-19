@@ -101,7 +101,7 @@
 <p align="center">
   <img src="https://github.com/sujin7822/README/assets/122075306/988f48e9-e9d6-4ef5-ac63-17231fc0badd" alt="Image1" width="300" height="200" />
   <img src="https://github.com/sujin7822/README/assets/122075306/0e999b63-553d-443a-9f78-cfbcab754500" alt="Image2" width="300" height="100" />
-  <img src="https://github.com/sujin7822/README/assets/122075306/6bf4eea8-4f32-42a3-b6e1-9fa21e1748bc" alt="Image3" width="300" height="20" />
+  <img src="https://github.com/sujin7822/README/assets/122075306/6bf4eea8-4f32-42a3-b6e1-9fa21e1748bc" alt="Image3" width="300" height="200" />
 </p>
 
 
