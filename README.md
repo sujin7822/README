@@ -95,8 +95,8 @@
 - 하지만 다른 사진들에서 비교했을 때 Unet이 SD Unet보다 미세혈관을 보편적으로 잘 나타낸다고 결론내기 어려움
 ![image](https://github.com/sujin7822/README/assets/122075306/e92596b0-3007-4159-b9fb-d9ac4a37b554)
 - 이 그림에서는 SD Unet이 미세혈관을 더 잘 표현
-- SD Unet이 정성적 평가에서 노이즈에 민감하고 /// 굵은 혈관을 깔끔하게 표현하지 x
-- 노색 원들을 보시면 SD Unet이 noise을 vessel이라고 오판한 경우가 많다는 것을 알 수 있고 파란색 원을 보시면 SD Unet이  굵은 혈관을 잘 못표현
+- SD Unet이 정성적 평가에서 노이즈에 민감하고 굵은 혈관을 깔끔하게 표현하지 x
+- 노색 원들을 보시면 SD Unet이 noise을 vessel이라고 오판한 경우가 많다는 것을 알 수 있고 파란색 원을 보시면 SD Unet이  굵은 혈관을 표현 x
 ![image](https://github.com/sujin7822/README/assets/122075306/9cc7f3ac-f051-4b2f-89fc-b0978306e289)
 - Noise가 많지 않은 사진에서도 파란색 부분을 비교해보시면 오른쪽 SD Unet이 굵은 혈관을 잘 구현하지 못한다는 것을 확인
 
@@ -104,9 +104,10 @@
 <br/>
 
 ### **_Wrap up_**
-- Unet이 미세혈관 부분을 Inception + Pyramid Unet보다 잘 구현​
-- Inception + Pyramid Unet 이 Unet보다 깔끔하고 정확한 Segmentation을 하지 X
-- 왜? Pyramid Pooling 때문
+- Unet과 SD Unet 모두 정량 정성 평가에서 확연한 차이 X.​
+- 하지만 SD Unet에서 두 가지 취약성을 발견.
+      첫째, Noise 에 취약
+      둘째, 굵은 혈관을 깔끔하게 Segmentation하지 X
 <br/>
 
 ### 3.4 FR Unet w DS
