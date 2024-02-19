@@ -1,4 +1,4 @@
-![image](https://github.com/sujin7822/README/assets/122075306/8155c73c-d085-4313-9f76-da22229644ef)
+![image](https://github.com/sujin7822/README/assets/122075306/ea730ec5-7934-4b77-8748-8a5b371b907b)![image](https://github.com/sujin7822/README/assets/122075306/8155c73c-d085-4313-9f76-da22229644ef)
 
 # AIFFEL X VISUWORKS
 * 모두의연구소 산하 인공지능 교육기관 AIFFEL과 인공지능 기반 안구 솔루션 전문기업 VISUWORKS가 협력하여 진행된 기업 연계 프로젝트로서, [Vessel Segmentation On Fundus Image] 주제에 대해 VISUWORKS로 부터 제공 받은 안저 사진 데이터를 기반으로 프로젝트를 진행하였습니다.
@@ -74,54 +74,39 @@
 
 ### 3.3 SD Unet
 - **Model** : SD Unet
-    - Unet을 기본 구조로 하고 Inception Module과 Pyramid Pooling Module을 통합함
-       - inception Module : 다양한 kernel size를 사용함으로써 다양한 크기의 혈관의 feature를 반영하는 feature map을 구성
-       - Pyramid Pooling Module : 여러 다양한 크기의 피라미드 영역을 생성하고, 각 영역에 대해 풀링 연산을 수행한 후, 이를 합치는 방식으로 작동함으로써 다양한 크기의 혈관 및 구조에 대한 정보를 통합
-         
+    - Unet을 기본 구조로 하고 structured dropout을 통합함
+    - 과적합을 방지하여 성능 향상을 기대
+       - structured dropout : 전통적인 완전 연결 층의 dropout을 사용하지 않고 structured dropout을 적용하여 정규화를 진행
+
 <p align="center">
   <img src="https://github.com/sujin7822/README/assets/122075306/eae77ca8-4542-42f3-b836-26f69c6ecdc5" alt="Image1" width="300" height="200" />
   <img src="https://github.com/sujin7822/README/assets/122075306/1e1731ca-3aea-461e-bf5b-631c967b589b" alt="Image2" width="200" height="100" />
   <img src="https://github.com/sujin7822/README/assets/122075306/196fdb50-c788-4de3-81a9-ed6a6458bfee" width="300" height="200" />
 </p>
 
+### **_Compare with Dense Unet_**
+**<정량>**
+![image](https://github.com/sujin7822/README/assets/122075306/3b0c694f-5e20-4a76-8e95-1273aa1d6597)
+- 정량평가로는 SD Unet이 Unet보다 좋은지를 알 수 x
+
+**<정성>**
+![image](https://github.com/sujin7822/README/assets/122075306/86d305d4-b72a-4eac-95d2-86768530401d)
+- 빨간색원을 보시면 Unet이 SD Unet보다 조금 더 미세혈관을 더 잘 표현
+- 하지만 다른 사진들에서 비교했을 때 Unet이 SD Unet보다 미세혈관을 보편적으로 잘 나타낸다고 결론내기 어려움
+![image](https://github.com/sujin7822/README/assets/122075306/e92596b0-3007-4159-b9fb-d9ac4a37b554)
+- 이 그림에서는 SD Unet이 미세혈관을 더 잘 표현
+- SD Unet이 정성적 평가에서 노이즈에 민감하고 /// 굵은 혈관을 깔끔하게 표현하지 x
+- 노색 원들을 보시면 SD Unet이 noise을 vessel이라고 오판한 경우가 많다는 것을 알 수 있고 파란색 원을 보시면 SD Unet이  굵은 혈관을 잘 못표현
+![image](https://github.com/sujin7822/README/assets/122075306/9cc7f3ac-f051-4b2f-89fc-b0978306e289)
+- Noise가 많지 않은 사진에서도 파란색 부분을 비교해보시면 오른쪽 SD Unet이 굵은 혈관을 잘 구현하지 못한다는 것을 확인
+
+
 <br/>
 
-### **FG**
-
-- 각 회차별 best 결과 확인 (5회 X 5명, 총 25회 진행)
-
-    | case | loss function | IoU | mIoU | model | loss weight | class weight | alpha |
-    | --- | --- | --- | --- | --- | --- | --- | --- |
-    | 1 | C.E loss | 83.09 | 88.24 | HRNet | 1.0 | [0.5, 1.0] | |
-    | 2 | C.E loss | 82.89 | 88.02 | HRNet | 1.0 | [0.3, 0.7] | |
-    | 3 | Focal loss | 81.94 | 87.53 | HRNet | 1.0 | None | |
-    | 4 | C.E + Lovasz loss | 83.49 | 88.51 | HRNet | 0.8, 0.2 | [0.5, 1.0] | 0.8 |
-    | 5 | Lovasz loss | 83.33 | 88.47 | HRNet | 1.0 | [0.3, 0.7] | |
-
-- **Inference**
-![img11](img/building_loss.png)
-
-<br/>
-
-### **_road_**
-
-- 각 회차별 best 결과 확인 (5회 X 5명, 총 25회 진행)
-
-    | case | loss function | IoU | mIoU | model | loss weight | class weight | alpha |
-    | --- | --- | --- | --- | --- | --- | --- | --- |
-    | 1 | C.E loss | 62.87 | 78.64 | SegFormer | 1.0 | [0.5, 1.0] | |
-    | 2 | C.E loss | 62.53 | 78.42 | SegFormer | 1.0 | [0.3, 0.7] | |
-    | 3 | Focal loss | 63.04 | 78.93 | SegFormer | 1.0 | [0.5, 1.0] | 0.2 |
-    | 4 | Focal + Lovasz loss | 63.7 | 79.28 | SegFormer | 0.8, 0.2 | [0.5, 1.0] | 0.8 |
-    | 5 | Focal + Lovasz loss | 63.66 | 79.25 | SegFormer | 0.8, 0.2 | [0.5, 1.0] | 0.2 |
-
-- **Inference**
-![img12](img/road_loss.png)
-
-### **_Result of Loss Function research_**
-
-![img13](img/loss_result.png)
-
+### **_Wrap up_**
+- Unet이 미세혈관 부분을 Inception + Pyramid Unet보다 잘 구현​
+- Inception + Pyramid Unet 이 Unet보다 깔끔하고 정확한 Segmentation을 하지 X
+- 왜? Pyramid Pooling 때문
 <br/>
 
 ### 3.4 FR Unet w DS
