@@ -1,27 +1,27 @@
 ![image](https://github.com/sujin7822/README/assets/122075306/8155c73c-d085-4313-9f76-da22229644ef)
 
 # AIFFEL X VISUWORKS
-* 모두의연구소 산하 인공지능 교육기관 AIFFEL과 인공지능 기반 안구 솔루션 전문기업 VISUWORKS가 협력하여 진행된 기업 연계 프로젝트로서, [Vessel Segmentation On Fundus Image] 주제에 대해 VISUWORKS로 부터 제공 받은 안저 영상 데이터를 기반으로 프로젝트를 진행하였습니다.
+* 모두의연구소 산하 인공지능 교육기관 AIFFEL과 인공지능 기반 안구 솔루션 전문기업 VISUWORKS가 협력하여 진행된 기업 연계 프로젝트로서, [Vessel Segmentation On Fundus Image] 주제에 대해 VISUWORKS로 부터 제공 받은 안저 사진 데이터를 기반으로 프로젝트를 진행하였습니다.
 
 <br/>
 
 ## 1. 프로젝트 소개
 
 ### 1.1 개요
-- 주제 : **위성영상 객체분할을 위한 의미론적 분할 기술**  
-- 기간 : 2021.04.25(월)  ~ 2021.06.09(목)  
+- 주제 : **Vessel Segmentation On Fundus Image**  
+- 기간 : 2024.01.02(화)  ~ 2024.02.21(수)  
 - 방식 : 팀 프로젝트
-- Keyword : 의미론적 분할 (Semantic segmentation), Instance segmentation
+- Keyword : Segmentation
 - 배경
-    * 의미론적 분할(Semantic Segmentation)은 위성으로부터 관찰되는 특정픽셀을 분류하는 방법으로써 전통적으로 많은 연구가 수행됨.
-    * 인공지능 분석결과를 육안으로 분석해야하는 한계를 넘기 위해 Instance Segmentation 분석 수요 증가.
-    * 객체의 ID가 구분되는 Instance Segmentation은 향후 고차원적인 분석방법을 지원.
+    * 사람의 시야를 건강하게 유지하는데 도움이 되기를 바라는 마음으로 시작.
+    * 안저 사진 진단 시 의사에게 도움이 되는 도구를 만들고자 함.
+    * 의사가 안저 사진 판독 시 소요되는 시간 및 정확도 상승 기대.
 
 <br/>
 
 ### 1.2 프로젝트 목표
-- 위성 영상에서 건물과 도로를 식별하고 객체를 분할한다.
-    - 건물, 도로 각각 Semantic Segmentation
+- 안저 사진에서 Vessel를 Segmentation 한다.
+    - Vessel Segmentation
 - 레벨별 스텝
     - [LV1] 건물과 도로를 각각 검출하고 결과를 합쳐서 분석한다. (일반 ★☆☆☆☆)
     - [LV2] 건물의 객체검출을 위한 학습을 수행한다. (어려움 ★★☆☆☆)
