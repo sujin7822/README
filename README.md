@@ -106,8 +106,8 @@
 ### **_Wrap up_**
 - Unet과 SD Unet 모두 정량 정성 평가에서 확연한 차이 X.​
 - 하지만 SD Unet에서 두 가지 취약성을 발견.
-      첫째, Noise 에 취약
-      둘째, 굵은 혈관을 깔끔하게 Segmentation하지 X
+     - 첫째, Noise 에 취약
+     - 둘째, 굵은 혈관을 깔끔하게 Segmentation하지 X
 <br/>
 
 ### 3.4 FR Unet w DS
