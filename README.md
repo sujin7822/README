@@ -67,67 +67,54 @@
 ![image](https://github.com/sujin7822/README/assets/122075306/591f99c8-9fd5-4e8c-9c0e-d5a7508e5c51)
 
 
-### 3.1 Pre-processing
+### 3.1 Unet
 - 위성 영상마다 각각의 json 파일에 건물의 polygon 좌표가 존재 → 좌표를 토대로 masking
 - 너무 작게 보여 식별이 힘든 컨테이너 박스, 기타 건물 class는 제외하고 masking
 
-### **_Building_**
+### **FG**
 > classes = (‘background’, ‘building’), palette = [[0, 0, 0], [0, 0, 255]]
 
 ![img2](img/building_masking.png)
 
 <br/>
 
-### **_road_**
+### **SG**
 > classes = (‘background’, ‘road’), palette = [[0, 0, 0], [255, 0, 255]]
 
 ![img3](img/road_masking.png)
 
 <br/>
 
-### 3.2 Modeling
+### **AG**
+> classes = (‘background’, ‘road’), palette = [[0, 0, 0], [255, 0, 255]]
 
-### **_Building_**
+![img3](img/road_masking.png)
+
+<br/>
+
+### 3.2 Inception + Pyramid Unet
+- **Model** : Inception + Pyramid Unet
+    - Unet을 기본 구조로 하고 Inception Module과 Pyramid Pooling Module을 통합함
+    - HRNet은 high-resolution representations를 전체 process 동안 유지하는 특징을 가지므로 모델 선정
+![image](https://github.com/sujin7822/README/assets/122075306/dc1ed1b3-2e33-44d5-9889-1b5966bc5302)
+
+
+### **FG**
 - **Model** : HRNet(Deep High-Resolution Representation Learning
 for Visual Recognition)
     - Human Pose Estimation 분야에서 SOTA 모델을 달성한 모델로 2019년 발표됨.
     - HRNet은 high-resolution representations를 전체 process 동안 유지하는 특징을 가지므로 모델 선정
 ![img4](img/hrnet.png)
 
-- **Train**
-    - 건물 면적이 50% 이상인 위성 영상은 적고, 평균적으로 20 ~ 30% 대 이기때문에, 건물 비율 100%, 95%, 90%, 85%에 대해 각각 모델 학습 진행
-    - 학습 후 Building IoU 및 Inference 결과 비교
-![img5](img/building_train.png)
-
-- **_Result of Building Semantic Segmentation_**
-![img6](img/building_level1_inference.png)
-
 <br/>
 
-### **_road_**
-
-- **Model** : SegFomer(Simple and Efficient Design for Semantic Segmentation with Transformers)
-    - encoder 와 decoder 모두에 transformer를 사용하여 efficiency, accuracy, robustness를 모두 고려한 모델
-    - Semantic Segmenation의 경우 context 정보를 포함하도록 large receptive field를 유지하는 것이 핵심 문제인데, Hierarchical Transformer 계층적인 구조가 encoder의 핵심부분으로 CNN과 같이 high-resolution coarse feature와 low resolution fine feature 모두를 생성할 수 있도록 구성했으며, 타 모델에 비해 receptive field가 훨씬 크기때문에 모델 선정
-![img7](img/segformer.png)
-
-- **Train**
-    - 도로 면적이 30% 이상인 위성 영상은 적고, 평균적으로 10 ~ 15% 대 이기때문에, 도로 비율 100%, 95%, 90%에 대해 각각 모델 학습 진행
-    - 학습 후 Road IoU 및 Inference 결과 비교
-![img8](img/road_train.png)
-
-- **_Result of Road Semantic Segmentation_**
-![img9](img/road_level1_inference.png)
-
-<br/>
-
-### 3.3 Loss Function research
+### 3.3 SD Unet
 
 - EDA를 통해 데이터셋이 가진 Class Imbalance 문제를 발견
 - Loss Function 변경하여, Minor class의 Loss에 더 큰 가중치를 주는 방법인 Re-weighting 에 집중
 ![img10](img/loss.png)
 
-### **_Building_**
+### **FG**
 
 - 각 회차별 best 결과 확인 (5회 X 5명, 총 25회 진행)
 
@@ -165,11 +152,11 @@ for Visual Recognition)
 
 <br/>
 
-### 3.4 Road Contour
+### 3.4 FR Unet w DS
 - Road Contour 실험목적 : Road Segmentation 성능 향상
 ![img14](img/contour.png)
 
-- **Inference**
+- **FG**
 ![img15](img/contour_inference.png)
 
 
@@ -186,7 +173,7 @@ for Visual Recognition)
 
 <br/>
 
-### 3.5 Upsampling
+### 3.5 FR Unet wo DS
 
 - Upsampling : Pooling 레이어를 거치면서 축소된 피처맵을 원본 이미지의 크기로 되돌리기 위해서 사용하는 방법. 단순히 이미지 형태를 유지하면서 픽셀 행/열 수 또는 둘다 늘리는 방법으로 공간 해상도를 증가시키는 것을 뜻함.
 - 이미지의 적당한 해상도는 작은 공간을 추출할 때 상당한 문제 → Upsampling을 통해 성능 향상기대
@@ -195,7 +182,7 @@ for Visual Recognition)
     - FSRCNN : upsampling 결과가 비슷한 다른 모델에 비해 처리 속도가 빨라서 실험에 적합하다고 판단
 ![img17](img/sr.png)
 
-### **_Building_**
+### **FG**
 ![img18](img/building_sr.png)
 
 ### **_road_**
