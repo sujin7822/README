@@ -105,12 +105,16 @@
 </p>
 
 
-### **FG**
+### **_Compare with Dense Unet_**
 - **Model** : HRNet(Deep High-Resolution Representation Learning
 for Visual Recognition)
     - Human Pose Estimation 분야에서 SOTA 모델을 달성한 모델로 2019년 발표됨.
     - HRNet은 high-resolution representations를 전체 process 동안 유지하는 특징을 가지므로 모델 선정
 ![img4](img/hrnet.png)
+
+<br/>
+
+### **_Compare with Dense Unet_**
 
 <br/>
 
