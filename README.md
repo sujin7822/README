@@ -80,7 +80,7 @@
          
 <p align="center">
   <img src="https://github.com/sujin7822/README/assets/122075306/eae77ca8-4542-42f3-b836-26f69c6ecdc5" alt="Image1" width="300" height="200" />
-  <img src="https://github.com/sujin7822/README/assets/122075306/1e1731ca-3aea-461e-bf5b-631c967b589b" alt="Image2" width="300" height="50" />
+  <img src="https://github.com/sujin7822/README/assets/122075306/1e1731ca-3aea-461e-bf5b-631c967b589b" alt="Image2" width="200" height="100" />
   <img src="https://github.com/sujin7822/README/assets/122075306/196fdb50-c788-4de3-81a9-ed6a6458bfee" width="300" height="200" />
 </p>
 
