@@ -98,7 +98,9 @@
        - inception Module : 다양한 kernel size를 사용함으로써 다양한 크기의 혈관의 feature를 반영하는 feature map을 구성
        - Pyramid Pooling Module : 여러 다양한 크기의 피라미드 영역을 생성하고, 각 영역에 대해 풀링 연산을 수행한 후, 이를 합치는 방식으로 작동함으로써 다양한 크기의 혈관 및 구조에 대한 정보를 통합
          
-![image](https://github.com/sujin7822/README/assets/122075306/dc1ed1b3-2e33-44d5-9889-1b5966bc5302)
+<p align="center">
+  <img src="https://github.com/sujin7822/README/assets/122075306/dc1ed1b3-2e33-44d5-9889-1b5966bc5302" alt="Image">
+</p>
 
 
 ### **FG**
