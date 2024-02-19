@@ -62,7 +62,10 @@
 
 <br/>
 
-## 3. Level1 건물과 도로를 각각 검출하고 결과를 합쳐서 분석
+## 3. Modeling
+
+![image](https://github.com/sujin7822/README/assets/122075306/8b9af2d2-4ed2-4e0c-878d-cc319cfb198d)
+
 
 ### 3.1 Pre-processing
 - 위성 영상마다 각각의 json 파일에 건물의 polygon 좌표가 존재 → 좌표를 토대로 masking
