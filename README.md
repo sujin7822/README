@@ -144,10 +144,10 @@
 ### 3.5 FR Unet wo DS
 - **Model** : FR Unet Without Deep Supervision
 ![image](https://github.com/sujin7822/README/assets/122075306/8749d447-7dfc-44f7-a169-8573309c7c9f)
-    - 다양한 scale로 존재하는 liver나 lung이 ​deep supervision으로 더 정확한 segmentation을 가능하게 함
-    - 이를 다르게 해석하면 다양한 scale로 존재하지 않는 객체인 경우(논문에서는 cell nuclei 저희로써는 혈관)
-    - 이러한 경우에는 deep supervision 이 성능에 안 좋은 영향을 끼칠 수 있다고 생각
-    - 이를 확인하기 위해서 Deep Supervision을 적용하지 않은 FR Unet으로 모델을 학습
+   - 다양한 scale로 존재하는 liver나 lung이 ​deep supervision으로 더 정확한 segmentation을 가능하게 함
+   - 이를 다르게 해석하면 다양한 scale로 존재하지 않는 객체인 경우(논문에서는 cell nuclei 저희로써는 혈관)
+   - 이러한 경우에는 deep supervision 이 성능에 안 좋은 영향을 끼칠 수 있다고 생각
+   - 이를 확인하기 위해서 Deep Supervision을 적용하지 않은 FR Unet으로 모델을 학습
 
 <p align="center">
   <img src="https://github.com/sujin7822/README/assets/122075306/8165d63e-54f2-4085-9a9e-006163d736ef" alt="Image1" width="300" height="200" />
