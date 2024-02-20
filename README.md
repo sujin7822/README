@@ -104,31 +104,47 @@
 <br/>
 
 ### **_Wrap up_**
-- Unet과 SD Unet 모두 정량 정성 평가에서 확연한 차이 X.​
-- 하지만 SD Unet에서 두 가지 취약성을 발견.
+- Unet과 SD Unet 모두 정량 정성 평가에서 확연한 차이 X.
+- 하지만 SD Unet에서 두 가지 취약성을 발견
      - 첫째, Noise 에 취약
      - 둘째, 굵은 혈관을 깔끔하게 Segmentation하지 X
 <br/>
 
 ### 3.4 FR Unet w DS
-- Road Contour 실험목적 : Road Segmentation 성능 향상
-![img14](img/contour.png)
+- **Model** : FR Unet Deep Supervision
+    - Unet++가 기존의 Unet을 수정하여 성능 향상을 이루었고 FR Unet이 Unet++의 구조를 차용하고 있음​
+       - Feature Aggregation Module : 다양한 kernel size를 사용함으로써 다양한 크기의 혈관의 feature를 반영하는 feature map 구성
+       - Modified Residual Block : 빠른 over fitting 문제 해소
 
-- **FG**
-![img15](img/contour_inference.png)
+<p align="center">
+  <img src="https://github.com/sujin7822/README/assets/122075306/f6866c30-c45a-4a3d-9bce-cc91972caa6f" alt="Image1" width="300" height="200" />
+  <img src="https://github.com/sujin7822/README/assets/122075306/a0e69432-d250-4ed0-9399-667f287be142" alt="Image2" width="200" height="100" />
+</p>
+
+### **_Compare with Dense Unet_**
+**<정량>**
+- 정량평가로는 SD Unet이 Unet보다 좋은지를 알 수 x
+![image](https://github.com/sujin7822/README/assets/122075306/3b0c694f-5e20-4a76-8e95-1273aa1d6597)
+
+**<정성>**
+- 빨간색원을 보시면 Unet이 SD Unet보다 조금 더 미세혈관을 더 잘 표현
+- 하지만 다른 사진들에서 비교했을 때 Unet이 SD Unet보다 미세혈관을 보편적으로 잘 나타낸다고 결론내기 어려움
+![image](https://github.com/sujin7822/README/assets/122075306/86d305d4-b72a-4eac-95d2-86768530401d)
+- 이 그림에서는 SD Unet이 미세혈관을 더 잘 표현
+- SD Unet이 정성적 평가에서 노이즈에 민감하고 굵은 혈관을 깔끔하게 표현하지 x
+- 노색 원들을 보시면 SD Unet이 noise을 vessel이라고 오판한 경우가 많다는 것을 알 수 있고 파란색 원을 보시면 SD Unet이  굵은 혈관을 표현 x
+![image](https://github.com/sujin7822/README/assets/122075306/e92596b0-3007-4159-b9fb-d9ac4a37b554)
+- Noise가 많지 않은 사진에서도 파란색 부분을 비교해보시면 오른쪽 SD Unet이 굵은 혈관을 잘 구현하지 못한다는 것을 확인
+![image](https://github.com/sujin7822/README/assets/122075306/9cc7f3ac-f051-4b2f-89fc-b0978306e289)
 
 
-    - 도로 영역이 전반적으로 두껍게 검출됨
-    - 폭이 얇은 두 도로의 경우 하나의 넓은 도로로 검출됨
-    - 테두리가 울퉁불퉁하게 검출되는 부분은 확실히 완화 되었으나, 도로가 더 두꺼워져 성능이 오히려 저하됨
+<br/>
 
-### **_Result of Road Contour_**
-![img16](img/contour_result.png)
-
-- Inference 확인 결과, 도로 사이의 간격이 좁은 경우 contour를 그리면서 위처럼 도로 사이의 틈이 contour의 두께에 뒤덮여
-소실되는 경우가 다수 발생
-- erosion 알고리즘은 위의 경우 폭이 넓은 한 덩어리의 도로로 인식하기 때문에, 도로 사이에 빈 background 검출 어려움
-
+### **_Wrap up_**
+- Unet과 SD Unet 모두 정량 정성 평가에서 확연한 차이 X
+- 하지만 SD Unet에서 두 가지 취약성을 발견
+     - 첫째, Noise 에 취약
+     - 둘째, 굵은 혈관을 깔끔하게 Segmentation하지 X
 <br/>
 
 ### 3.5 FR Unet wo DS
