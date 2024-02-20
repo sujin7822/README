@@ -123,64 +123,66 @@
 
 ### **_Compare with Dense Unet_**
 **<정량>**
-- 정량평가로는 SD Unet이 Unet보다 좋은지를 알 수 x
-![image](https://github.com/sujin7822/README/assets/122075306/3b0c694f-5e20-4a76-8e95-1273aa1d6597)
+- Test Dataset의 모든 평가지표가 아주 미세하게 상승​
+- 논문에서 사용한 test dataset (DRIVE, CHASE_DB1)의 평가지표가 상승
+![image](https://github.com/sujin7822/README/assets/122075306/8b211d6b-1fa9-4a24-ae1e-26af3dccdd53)
 
 **<정성>**
-- 빨간색원을 보시면 Unet이 SD Unet보다 조금 더 미세혈관을 더 잘 표현
-- 하지만 다른 사진들에서 비교했을 때 Unet이 SD Unet보다 미세혈관을 보편적으로 잘 나타낸다고 결론내기 어려움
-![image](https://github.com/sujin7822/README/assets/122075306/86d305d4-b72a-4eac-95d2-86768530401d)
-- 이 그림에서는 SD Unet이 미세혈관을 더 잘 표현
-- SD Unet이 정성적 평가에서 노이즈에 민감하고 굵은 혈관을 깔끔하게 표현하지 x
-- 노색 원들을 보시면 SD Unet이 noise을 vessel이라고 오판한 경우가 많다는 것을 알 수 있고 파란색 원을 보시면 SD Unet이  굵은 혈관을 표현 x
-![image](https://github.com/sujin7822/README/assets/122075306/e92596b0-3007-4159-b9fb-d9ac4a37b554)
-- Noise가 많지 않은 사진에서도 파란색 부분을 비교해보시면 오른쪽 SD Unet이 굵은 혈관을 잘 구현하지 못한다는 것을 확인
-![image](https://github.com/sujin7822/README/assets/122075306/9cc7f3ac-f051-4b2f-89fc-b0978306e289)
+- 빨간색원을 보시면 Unet이 FR Unet보다 미세혈관을 더 잘 표현
+- 파란색원을 비교해 보시면 FR Unet이 Unet보다 굵은혈관을 더 잘 표현
+![image](https://github.com/sujin7822/README/assets/122075306/5e937fa7-3289-4ba2-8344-b059f453df40)
+
+<br/>
+
+### **_Wrap up_**
+- FR Unet은 Unet보다 미세혈관을 잘 구현하지 못함
+     - 프로젝트의 중요 목표(미세혈관 구현)와 상반되는 결과
+- FR Unet은 Unet보다 굵은혈관을 잘 구현
+- 위 두 특징이 평가지표에서 trade off로 작용하여 FR Unet이 유의미한 성능 차이를 기록하지 못함
+<br/>
+
+### 3.5 FR Unet wo DS
+- **Model** : FR Unet Without Deep Supervision
+![image](https://github.com/sujin7822/README/assets/122075306/8749d447-7dfc-44f7-a169-8573309c7c9f)
+    - 다양한 scale로 존재하는 liver나 lung이 ​deep supervision으로 더 정확한 segmentation을 가능하게 함
+    - 이를 다르게 해석하면 다양한 scale로 존재하지 않는 객체인 경우(논문에서는 cell nuclei 저희로써는 혈관)
+    - 이러한 경우에는 deep supervision 이 성능에 안 좋은 영향을 끼칠 수 있다고 생각
+    - 이를 확인하기 위해서 Deep Supervision을 적용하지 않은 FR Unet으로 모델을 학습
+
+<p align="center">
+  <img src="https://github.com/sujin7822/README/assets/122075306/8165d63e-54f2-4085-9a9e-006163d736ef" alt="Image1" width="300" height="200" />
+  <img src="https://github.com/sujin7822/README/assets/122075306/161e0d0a-5551-45f9-b15f-c35434da9bbf" alt="Image2" width="600" height="200" />
+</p>
+
+### **_Compare with Dense Unet_**
+**<정량>**
+- Sensitivity 평가지표 값 대폭 상승​
+- 다른 평가지표 값 소폭 하락
+![image](https://github.com/sujin7822/README/assets/122075306/27d3ed52-2db4-4717-9123-453af008a0b8)
+
+**<정성>**
+- 모든 부분에서 FR Unet wo DS가 Unet과 FR Unet w DS에 비해 좋은 성능을 보임
+- FR Unet wo DS가 미세혈관을 더욱 잘 잡으면서, 동시에 연속적인 혈관의 특징까지 잘 파악
+![image](https://github.com/sujin7822/README/assets/122075306/79ec5449-9b68-42be-b7a5-ad975606784f)
+​- 빨간색 원을 보시면 Deep Supervision을 사용하지 않고 학습된 FR Unet이 Unet처럼 미세혈관을 잘 잡는 다는 것 확인
+- 파란색 원을 보시 Deep Supervision을 사용해 학습된 FR Unet이 여전히 굵은 혈관을 잘 잡음
+![image](https://github.com/sujin7822/README/assets/122075306/bbbfa918-1e69-43b3-b5a8-b39631f7138d)
 
 
 <br/>
 
 ### **_Wrap up_**
-- Unet과 SD Unet 모두 정량 정성 평가에서 확연한 차이 X
-- 하지만 SD Unet에서 두 가지 취약성을 발견
-     - 첫째, Noise 에 취약
-     - 둘째, 굵은 혈관을 깔끔하게 Segmentation하지 X
+​- FR Unet wo DS가 FR Unet w DS에서 미세혈관을 잘 구현하지 못했던 문제를 해결.
+- FR Unet wo DS는 FR Unet w DS 처럼 굵은혈관을 잘 구현
+
+☛ FR Unet  without Deep Supervision은 저희 팀의 목표인 “혈관 구현력” 을 가장 잘 실현해 줌.
 <br/>
 
-### 3.5 FR Unet wo DS
+### 3.6 The Final Puzzle Piece we should make 
 
-- Upsampling : Pooling 레이어를 거치면서 축소된 피처맵을 원본 이미지의 크기로 되돌리기 위해서 사용하는 방법. 단순히 이미지 형태를 유지하면서 픽셀 행/열 수 또는 둘다 늘리는 방법으로 공간 해상도를 증가시키는 것을 뜻함.
-- 이미지의 적당한 해상도는 작은 공간을 추출할 때 상당한 문제 → Upsampling을 통해 성능 향상기대
-- Super Resolution으로 upsampling 후 patch size를 조절해 학습
-    - SRGAN : GAN 모델은 해상도가 향상되나 의도치 않은 artifacts 발생 및 원본의 특성이 훼손될 우려로 부적합하다고 판단
-    - FSRCNN : upsampling 결과가 비슷한 다른 모델에 비해 처리 속도가 빨라서 실험에 적합하다고 판단
-![img17](img/sr.png)
-
-### **FG**
-![img18](img/building_sr.png)
-
-### **_road_**
-![img19](img/road_sr.png)
-
-### **_Result of Upsampling_**
-- Dramatic하게 성능이 높아지진 않았음
-- SpaceNet 7 데이터셋은 건물 및 도로의 크기가 작아 upsampling의 효과를 본 것으로 보임
-- 반면 아리랑 데이터셋은 건물 및 도로가 비교적 크기에 효과가 적은 것으로 추정
-![img20](img/sr_result.png)
-
-<br/>
-
-### 3.6 Test data 분석
-
-### **_Building_**
-- Labeling problem
-    - 육안 상 건물로 보이고, 모델도 건물로 예측한 부분이 정답 label에는 없음
-    - 건물로 판단하는 기준이 모호하고 일관성이 부족함 → Noisy Label
-        - 어느 정답 label에서는 건물로 masking되어 있지만, 다른 labeld에는 masking이 없음.
-        - 우리의 모델을 이 건물을 잘 인식하도록 oversampling하더라도, 평가 시 정답지에 이 건물에 대한 masking이 없는 경우도 있기 때문에 IoU는 하락할 것임.
-    - 이미지 가장자리에 위치한 건물들의 정답 label이 누락된 경우가 많음
-
-![img21](img/building_test.png)
+### **_프로젝트 마지막 종착점_**
+- 혈관 관련 질병을 Classification 해주는 모델 개발하여 Grad CAM 적용​
+- Segmentation + Classification 모델을 병렬로 구성하여 서비스 배포
 
 <br/>
 
