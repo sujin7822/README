@@ -164,7 +164,7 @@
 - 모든 부분에서 FR Unet wo DS가 Unet과 FR Unet w DS에 비해 좋은 성능을 보임
 - FR Unet wo DS가 미세혈관을 더욱 잘 잡으면서, 동시에 연속적인 혈관의 특징까지 잘 파악
 ![image](https://github.com/sujin7822/README/assets/122075306/79ec5449-9b68-42be-b7a5-ad975606784f)
-​- 빨간색 원을 보시면 Deep Supervision을 사용하지 않고 학습된 FR Unet이 Unet처럼 미세혈관을 잘 잡는 다는 것 확인
+- 빨간색 원을 보시면 Deep Supervision을 사용하지 않고 학습된 FR Unet이 Unet처럼 미세혈관을 잘 잡는 다는 것 확인
 - 파란색 원을 보시 Deep Supervision을 사용해 학습된 FR Unet이 여전히 굵은 혈관을 잘 잡음
 ![image](https://github.com/sujin7822/README/assets/122075306/bbbfa918-1e69-43b3-b5a8-b39631f7138d)
 
@@ -172,7 +172,7 @@
 <br/>
 
 ### **_Wrap up_**
-​- FR Unet wo DS가 FR Unet w DS에서 미세혈관을 잘 구현하지 못했던 문제를 해결.
+- FR Unet wo DS가 FR Unet w DS에서 미세혈관을 잘 구현하지 못했던 문제를 해결
 - FR Unet wo DS는 FR Unet w DS 처럼 굵은혈관을 잘 구현
 
 ☛ FR Unet  without Deep Supervision은 저희 팀의 목표인 “혈관 구현력” 을 가장 잘 실현해 줌.
