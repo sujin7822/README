@@ -118,7 +118,7 @@
 
 <p align="center">
   <img src="https://github.com/sujin7822/README/assets/122075306/f6866c30-c45a-4a3d-9bce-cc91972caa6f" alt="Image1" width="300" height="200" />
-  <img src="https://github.com/sujin7822/README/assets/122075306/a0e69432-d250-4ed0-9399-667f287be142" alt="Image2" width="200" height="100" />
+  <img src="https://github.com/sujin7822/README/assets/122075306/a0e69432-d250-4ed0-9399-667f287be142" alt="Image2" width="600" height="200" />
 </p>
 
 ### **_Compare with Dense Unet_**
